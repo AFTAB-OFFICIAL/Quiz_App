@@ -40,7 +40,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
                   fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            SizedBox(
+          const   SizedBox(
               height: 30,
             ),
 
