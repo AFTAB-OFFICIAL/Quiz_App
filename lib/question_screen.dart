@@ -27,7 +27,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
     return SizedBox(
       width: double.infinity,
       child: Container(
-        margin: EdgeInsets.all(40),
+        margin: const EdgeInsets.all(40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -35,21 +35,24 @@ class _QuestionScreenState extends State<QuestionScreen> {
             Text(
               currentQuestion.text,
               style: GoogleFonts.lato(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold),
+                color: Colors.white,
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
               textAlign: TextAlign.center,
             ),
-          const   SizedBox(
+            const SizedBox(
               height: 30,
             ),
 
-            ...currentQuestion.getShuffledList().map((answers) {
-              return AnswerButton(
-                answerText: answers,
-                ontap: answerQuestions,
-              );
-            }),
+            ...currentQuestion.getShuffledList().map(
+              (answers) {
+                return AnswerButton(
+                  answerText: answers,
+                  ontap: answerQuestions,
+                );
+              },
+            ),
             // AnswerButton(answerText: 'Answer 1', ontap: () {}),
             // AnswerButton(answerText: 'Answer 2', ontap: () {}),
             // AnswerButton(answerText: 'Answer 3', ontap: () {}),
