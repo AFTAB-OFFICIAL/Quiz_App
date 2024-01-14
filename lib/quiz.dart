@@ -37,10 +37,17 @@ class _QuizState extends State<Quiz> {
 
     if (selectedAnswer.length == questions.length) {
       setState(() {
-        selectedAnswer = [];
+        // selectedAnswer = [];
         activeScreen = 'resultsScreen';
       });
     }
+  }
+
+  onRestartQuiz() {
+    setState(() {
+      List<String> selectedAnswer = [];
+      activeScreen = 'questionScreen';
+    });
   }
 
   Widget build(context) {
@@ -53,7 +60,10 @@ class _QuizState extends State<Quiz> {
     }
 
     if (activeScreen == 'resultsScreen') {
-      screenWidget = ResultsScreen(chosenAnswer: selectedAnswer);
+      screenWidget = ResultsScreen(
+        chosenAnswer: selectedAnswer,
+        onRestartQuiz: onRestartQuiz,
+      );
     }
     return MaterialApp(
       debugShowCheckedModeBanner: false,
